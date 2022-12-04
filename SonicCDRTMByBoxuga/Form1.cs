@@ -10,20 +10,68 @@ using XRPCLib;
 using XDevkitPlusPlus;
 using System.Net.NetworkInformation;
 using System.Diagnostics;
+using System.Net;
 
 namespace SonicUnleashedRTMByBoxuga
 {
     public partial class Form1 : Form
     {
         XRPC rpc = new XRPC();
+        int versionnumber = 2; // This Version of the Application
+        int currentversion = 0; // Just initiates and defines version as 0 and later downloaded from http://rtm.boxu.ga/Sonic/CD/version.txt and sets it too the number in text file
         public Form1()
         {
             InitializeComponent();
-            actions.Text = $"Welcome {Environment.UserName} to the Sonic CD Mod Tool";
+            actions.Text = $"Welcome {Environment.UserName} to the Sonic CD Mod Tool"; // Welcomes the User at bottom of page
+            currentversion = HTTPGETint("http://rtm.boxu.ga/Sonic/CD/version.txt");
+            CheckUpdate(false);
+        }
+
+        public int HTTPGETint(String url)
+        {
+            try
+            {
+                var WebClient = new WebClient(); // Makes a new WebClient
+                int Web2int = Int16.Parse(WebClient.DownloadString(url));
+                return Web2int;
+            }
+            catch
+            {
+                return -1; // if error occurs such as the user not having internet access or server down etc it will just define value as 0
+            }
+        }
+
+        private void CheckUpdate(bool ShowMessageonLatest)
+        {
+
+
+            if (currentversion > versionnumber)
+            {
+                var msg = MessageBox.Show($"Would you want to check the Github Repo Releases?", $"Update to v{currentversion} from v{versionnumber}", MessageBoxButtons.YesNo); // Makes popup if version is out of date
+                if (msg == DialogResult.Yes)
+                {
+                    Process.Start("https://github.com/BoxxyDEV/SonicCD-RTM-Tool-Xbox360RGH/releases"); // if user clicks yes then will open in default browser (Edge, Chrome, or Firefox Usually)
+                }
+
+            }
+            else
+            {
+                if (ShowMessageonLatest)
+                {
+                    if (currentversion == -1)
+                    {
+                        MessageBox.Show("Error: Checking for Updates - Server may be down or you are not connected to the internet");
+                    }
+                    else { 
+                        MessageBox.Show("You are already on the latest version", "Sonic CD RTM Tool Update");
+                    }
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           
 
         }
 
@@ -169,7 +217,7 @@ namespace SonicUnleashedRTMByBoxuga
 
         private void NineNineNineKScore_Click(object sender, EventArgs e)
         {
-            rpc.xbCon.DebugTarget.WriteInt32(Convert.ToUInt32(0xC23F9574), 0);
+            rpc.xbCon.DebugTarget.WriteInt32(Convert.ToUInt32(0xC23F9574), 999999);
             actions.Text = $"Set your score to 999,999 on {Environment.UserName}'s Xbox";
         }
 
@@ -205,6 +253,11 @@ namespace SonicUnleashedRTMByBoxuga
         private void refreshbtn_Click(object sender, EventArgs e)
         {
             ScoreUpdater();
+        }
+
+        private void UpdateCheckerBTN_Click(object sender, EventArgs e)
+        {
+            CheckUpdate(true);
         }
     }
 }

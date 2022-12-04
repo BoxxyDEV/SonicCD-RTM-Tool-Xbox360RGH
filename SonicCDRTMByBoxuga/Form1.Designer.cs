@@ -33,6 +33,11 @@
             this.ConnectButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.StatsGroupbox = new System.Windows.Forms.GroupBox();
+            this.refreshbtn = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.LivesStat = new System.Windows.Forms.Label();
+            this.ScoreStat = new System.Windows.Forms.Label();
             this.ScoreBox = new System.Windows.Forms.GroupBox();
             this.CustomScoreBTN = new System.Windows.Forms.Button();
             this.CustomScoreNum = new System.Windows.Forms.NumericUpDown();
@@ -57,24 +62,20 @@
             this.LivesEditorNum = new System.Windows.Forms.NumericUpDown();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.YTBoxuga = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.Boxudotga = new System.Windows.Forms.Button();
             this.actions = new System.Windows.Forms.Label();
-            this.StatsGroupbox = new System.Windows.Forms.GroupBox();
-            this.ScoreStat = new System.Windows.Forms.Label();
-            this.LivesStat = new System.Windows.Forms.Label();
             this.stattimer = new System.Windows.Forms.Timer(this.components);
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.refreshbtn = new System.Windows.Forms.Button();
+            this.YTBoxuga = new System.Windows.Forms.Button();
+            this.UpdateCheckerBTN = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.StatsGroupbox.SuspendLayout();
             this.ScoreBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomScoreNum)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RingsCustomNum)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LivesEditorNum)).BeginInit();
-            this.StatsGroupbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // ConnectButton
@@ -117,6 +118,62 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mods";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // StatsGroupbox
+            // 
+            this.StatsGroupbox.Controls.Add(this.refreshbtn);
+            this.StatsGroupbox.Controls.Add(this.checkBox1);
+            this.StatsGroupbox.Controls.Add(this.LivesStat);
+            this.StatsGroupbox.Controls.Add(this.ScoreStat);
+            this.StatsGroupbox.Location = new System.Drawing.Point(226, 138);
+            this.StatsGroupbox.Name = "StatsGroupbox";
+            this.StatsGroupbox.Size = new System.Drawing.Size(238, 135);
+            this.StatsGroupbox.TabIndex = 5;
+            this.StatsGroupbox.TabStop = false;
+            this.StatsGroupbox.Text = "Current Stats";
+            // 
+            // refreshbtn
+            // 
+            this.refreshbtn.Enabled = false;
+            this.refreshbtn.Location = new System.Drawing.Point(157, 101);
+            this.refreshbtn.Name = "refreshbtn";
+            this.refreshbtn.Size = new System.Drawing.Size(75, 23);
+            this.refreshbtn.TabIndex = 4;
+            this.refreshbtn.Text = "Refresh";
+            this.refreshbtn.UseVisualStyleBackColor = true;
+            this.refreshbtn.Click += new System.EventHandler(this.refreshbtn_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Enabled = false;
+            this.checkBox1.Location = new System.Drawing.Point(7, 109);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(88, 17);
+            this.checkBox1.TabIndex = 3;
+            this.checkBox1.Text = "Auto Refresh";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // LivesStat
+            // 
+            this.LivesStat.AutoSize = true;
+            this.LivesStat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LivesStat.Location = new System.Drawing.Point(6, 50);
+            this.LivesStat.Name = "LivesStat";
+            this.LivesStat.Size = new System.Drawing.Size(155, 21);
+            this.LivesStat.TabIndex = 2;
+            this.LivesStat.Text = "Lives: Connect First";
+            // 
+            // ScoreStat
+            // 
+            this.ScoreStat.AutoSize = true;
+            this.ScoreStat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScoreStat.Location = new System.Drawing.Point(6, 21);
+            this.ScoreStat.Name = "ScoreStat";
+            this.ScoreStat.Size = new System.Drawing.Size(159, 21);
+            this.ScoreStat.TabIndex = 1;
+            this.ScoreStat.Text = "Score: Connect First";
             // 
             // ScoreBox
             // 
@@ -401,25 +458,13 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // YTBoxuga
-            // 
-            this.YTBoxuga.BackColor = System.Drawing.Color.White;
-            this.YTBoxuga.ForeColor = System.Drawing.Color.Black;
-            this.YTBoxuga.Location = new System.Drawing.Point(369, 12);
-            this.YTBoxuga.Name = "YTBoxuga";
-            this.YTBoxuga.Size = new System.Drawing.Size(112, 23);
-            this.YTBoxuga.TabIndex = 3;
-            this.YTBoxuga.Text = "Boxuga\'s YouTube";
-            this.YTBoxuga.UseVisualStyleBackColor = false;
-            this.YTBoxuga.Click += new System.EventHandler(this.YTBoxuga_Click);
-            // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.White;
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(183, 12);
+            this.button4.Location = new System.Drawing.Point(491, 99);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(112, 23);
             this.button4.TabIndex = 4;
             this.button4.Text = "RTM Site";
             this.button4.UseVisualStyleBackColor = false;
@@ -428,9 +473,9 @@
             // Boxudotga
             // 
             this.Boxudotga.ForeColor = System.Drawing.Color.Black;
-            this.Boxudotga.Location = new System.Drawing.Point(264, 12);
+            this.Boxudotga.Location = new System.Drawing.Point(491, 70);
             this.Boxudotga.Name = "Boxudotga";
-            this.Boxudotga.Size = new System.Drawing.Size(99, 23);
+            this.Boxudotga.Size = new System.Drawing.Size(112, 23);
             this.Boxudotga.TabIndex = 5;
             this.Boxudotga.Text = "Boxuga\'s Site";
             this.Boxudotga.UseVisualStyleBackColor = true;
@@ -446,73 +491,42 @@
             this.actions.TabIndex = 6;
             this.actions.Text = "Welcome";
             // 
-            // StatsGroupbox
-            // 
-            this.StatsGroupbox.Controls.Add(this.refreshbtn);
-            this.StatsGroupbox.Controls.Add(this.checkBox1);
-            this.StatsGroupbox.Controls.Add(this.LivesStat);
-            this.StatsGroupbox.Controls.Add(this.ScoreStat);
-            this.StatsGroupbox.Location = new System.Drawing.Point(226, 138);
-            this.StatsGroupbox.Name = "StatsGroupbox";
-            this.StatsGroupbox.Size = new System.Drawing.Size(238, 135);
-            this.StatsGroupbox.TabIndex = 5;
-            this.StatsGroupbox.TabStop = false;
-            this.StatsGroupbox.Text = "Current Stats";
-            // 
-            // ScoreStat
-            // 
-            this.ScoreStat.AutoSize = true;
-            this.ScoreStat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScoreStat.Location = new System.Drawing.Point(6, 21);
-            this.ScoreStat.Name = "ScoreStat";
-            this.ScoreStat.Size = new System.Drawing.Size(159, 21);
-            this.ScoreStat.TabIndex = 1;
-            this.ScoreStat.Text = "Score: Connect First";
-            // 
-            // LivesStat
-            // 
-            this.LivesStat.AutoSize = true;
-            this.LivesStat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LivesStat.Location = new System.Drawing.Point(6, 50);
-            this.LivesStat.Name = "LivesStat";
-            this.LivesStat.Size = new System.Drawing.Size(155, 21);
-            this.LivesStat.TabIndex = 2;
-            this.LivesStat.Text = "Lives: Connect First";
-            // 
             // stattimer
             // 
             this.stattimer.Interval = 1000;
             this.stattimer.Tick += new System.EventHandler(this.stattimer_Tick);
             // 
-            // checkBox1
+            // YTBoxuga
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Enabled = false;
-            this.checkBox1.Location = new System.Drawing.Point(7, 109);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(88, 17);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Auto Refresh";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.YTBoxuga.BackColor = System.Drawing.Color.White;
+            this.YTBoxuga.ForeColor = System.Drawing.Color.Black;
+            this.YTBoxuga.Location = new System.Drawing.Point(491, 41);
+            this.YTBoxuga.Name = "YTBoxuga";
+            this.YTBoxuga.Size = new System.Drawing.Size(112, 23);
+            this.YTBoxuga.TabIndex = 3;
+            this.YTBoxuga.Text = "Boxuga\'s YouTube";
+            this.YTBoxuga.UseVisualStyleBackColor = false;
+            this.YTBoxuga.Click += new System.EventHandler(this.YTBoxuga_Click);
             // 
-            // refreshbtn
+            // UpdateCheckerBTN
             // 
-            this.refreshbtn.Enabled = false;
-            this.refreshbtn.Location = new System.Drawing.Point(157, 101);
-            this.refreshbtn.Name = "refreshbtn";
-            this.refreshbtn.Size = new System.Drawing.Size(75, 23);
-            this.refreshbtn.TabIndex = 4;
-            this.refreshbtn.Text = "Refresh";
-            this.refreshbtn.UseVisualStyleBackColor = true;
-            this.refreshbtn.Click += new System.EventHandler(this.refreshbtn_Click);
+            this.UpdateCheckerBTN.BackColor = System.Drawing.Color.White;
+            this.UpdateCheckerBTN.ForeColor = System.Drawing.Color.Black;
+            this.UpdateCheckerBTN.Location = new System.Drawing.Point(491, 129);
+            this.UpdateCheckerBTN.Name = "UpdateCheckerBTN";
+            this.UpdateCheckerBTN.Size = new System.Drawing.Size(112, 23);
+            this.UpdateCheckerBTN.TabIndex = 7;
+            this.UpdateCheckerBTN.Text = "Check for Updates";
+            this.UpdateCheckerBTN.UseVisualStyleBackColor = false;
+            this.UpdateCheckerBTN.Click += new System.EventHandler(this.UpdateCheckerBTN_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(493, 362);
+            this.ClientSize = new System.Drawing.Size(615, 362);
+            this.Controls.Add(this.UpdateCheckerBTN);
             this.Controls.Add(this.actions);
             this.Controls.Add(this.Boxudotga);
             this.Controls.Add(this.button4);
@@ -528,6 +542,8 @@
             this.Text = "Sonic CD (Mod Tool) for Xbox 360 RGH/JTAG By Boxuga";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
+            this.StatsGroupbox.ResumeLayout(false);
+            this.StatsGroupbox.PerformLayout();
             this.ScoreBox.ResumeLayout(false);
             this.ScoreBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomScoreNum)).EndInit();
@@ -537,8 +553,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LivesEditorNum)).EndInit();
-            this.StatsGroupbox.ResumeLayout(false);
-            this.StatsGroupbox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -558,7 +572,6 @@
         private System.Windows.Forms.Button HundredRings;
         private System.Windows.Forms.Button FiveZeroRings;
         private System.Windows.Forms.Button NoRings;
-        private System.Windows.Forms.Button YTBoxuga;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button Boxudotga;
         private System.Windows.Forms.Button LivesEditorbtn;
@@ -583,6 +596,8 @@
         private System.Windows.Forms.Timer stattimer;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button refreshbtn;
+        private System.Windows.Forms.Button YTBoxuga;
+        private System.Windows.Forms.Button UpdateCheckerBTN;
     }
 }
 
