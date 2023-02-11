@@ -17,7 +17,7 @@ namespace SonicUnleashedRTMByBoxuga
     public partial class Form1 : Form
     {
         XRPC rpc = new XRPC();
-        int versionnumber = 2; // This Version of the Application
+        int versionnumber = 3; // This Version of the Application
         int currentversion = 0; // Just initiates and defines version as 0 and later downloaded from http://rtm.boxu.ga/Sonic/CD/version.txt and sets it too the number in text file
         public Form1()
         {
