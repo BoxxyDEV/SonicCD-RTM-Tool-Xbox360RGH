@@ -62,7 +62,6 @@
             this.LivesEditorNum = new System.Windows.Forms.NumericUpDown();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.Boxudotga = new System.Windows.Forms.Button();
             this.actions = new System.Windows.Forms.Label();
             this.stattimer = new System.Windows.Forms.Timer(this.components);
@@ -458,18 +457,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(491, 99);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(112, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "RTM Site";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
-            // 
             // Boxudotga
             // 
             this.Boxudotga.ForeColor = System.Drawing.Color.Black;
@@ -512,7 +499,7 @@
             // 
             this.UpdateCheckerBTN.BackColor = System.Drawing.Color.White;
             this.UpdateCheckerBTN.ForeColor = System.Drawing.Color.Black;
-            this.UpdateCheckerBTN.Location = new System.Drawing.Point(491, 129);
+            this.UpdateCheckerBTN.Location = new System.Drawing.Point(491, 105);
             this.UpdateCheckerBTN.Name = "UpdateCheckerBTN";
             this.UpdateCheckerBTN.Size = new System.Drawing.Size(112, 23);
             this.UpdateCheckerBTN.TabIndex = 7;
@@ -529,7 +516,6 @@
             this.Controls.Add(this.UpdateCheckerBTN);
             this.Controls.Add(this.actions);
             this.Controls.Add(this.Boxudotga);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.YTBoxuga);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ConnectButton);
@@ -572,7 +558,6 @@
         private System.Windows.Forms.Button HundredRings;
         private System.Windows.Forms.Button FiveZeroRings;
         private System.Windows.Forms.Button NoRings;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button Boxudotga;
         private System.Windows.Forms.Button LivesEditorbtn;
         private System.Windows.Forms.NumericUpDown LivesEditorNum;

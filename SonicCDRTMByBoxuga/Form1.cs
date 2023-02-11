@@ -23,7 +23,7 @@ namespace SonicUnleashedRTMByBoxuga
         {
             InitializeComponent();
             actions.Text = $"Welcome {Environment.UserName} to the Sonic CD Mod Tool"; // Welcomes the User at bottom of page
-            currentversion = HTTPGETint("https://rtm.boxu.ga/Sonic/CD/version.txt");
+            currentversion = HTTPGETint("https://boxu.ga/mods/rtm/soniccd/version.txt");
             CheckUpdate(false);
 
         }
